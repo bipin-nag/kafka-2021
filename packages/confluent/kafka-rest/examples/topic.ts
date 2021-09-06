@@ -3,13 +3,13 @@ import * as apis from '../api/apis';
 
 async function run() {
 
-    var cluster = new apis.ClusterApi();
+    var clusterApi = new apis.ClusterApi();
     var result;
 
-    result = await cluster.clustersGet();
+    result = await clusterApi.clustersGet();
     const clusterId = result.body.data[0].clusterId;
 
-    var topics = new apis.TopicV3Api();
+    var topicApi = new apis.TopicV3Api();
 
     var requestData = {
         "topicName": "topic-X",
@@ -28,16 +28,16 @@ async function run() {
     };
     try {
 
-        result = await topics.createKafkaV3Topic(clusterId, requestData);
+        result = await topicApi.createKafkaV3Topic(clusterId, requestData);
         console.log(result.body);
 
-        result = await topics.getKafkaV3Topic(clusterId, requestData.topicName);
+        result = await topicApi.getKafkaV3Topic(clusterId, requestData.topicName);
         console.log(result.body);
 
-        result = await topics.deleteKafkaV3Topic(clusterId, requestData.topicName);
+        result = await topicApi.deleteKafkaV3Topic(clusterId, requestData.topicName);
         console.log(result.body);
 
-        result = await topics.getKafkaV3Topic(clusterId, requestData.topicName);
+        result = await topicApi.getKafkaV3Topic(clusterId, requestData.topicName);
 
     } catch (error: any) {
         console.error(error?.response.body);

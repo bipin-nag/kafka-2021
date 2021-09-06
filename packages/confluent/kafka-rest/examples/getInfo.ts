@@ -2,19 +2,19 @@ import * as apis from '../api/apis';
 
 async function run() {
 
-    var cluster = new apis.ClusterApi();
+    var clusterApi = new apis.ClusterApi();
     var result;
 
-    result = await cluster.clustersGet();
+    result = await clusterApi.clustersGet();
     console.log(result.body);
     const clusterId = result.body.data[0].clusterId;
 
-    var broker = new apis.BrokerApi();
-    result = await broker.clustersClusterIdBrokersGet(clusterId);
+    var brokerApi = new apis.BrokerApi();
+    result = await brokerApi.clustersClusterIdBrokersGet(clusterId);
     console.log(result.body);
 
-    var topics = new apis.TopicV3Api();
-    result = await topics.listKafkaV3Topics(clusterId);
+    var topicApi = new apis.TopicV3Api();
+    result = await topicApi.listKafkaV3Topics(clusterId);
     console.log(result.body);
 }
 
