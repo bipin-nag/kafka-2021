@@ -1,0 +1,11 @@
+{
+  "name": "@bipin/kafka-2021",
+  "private": true,
+  "version": "1.0.0",
+  "devDependencies": {
+    "typescript": "^4.4.2"
+  },
+  "workspaces": [
+    "packages/nest/*"
+  ]
+}
