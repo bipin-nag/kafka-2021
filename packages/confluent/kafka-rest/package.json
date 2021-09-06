@@ -1,0 +1,11 @@
+{
+    "name": "kafka-rest",
+    "version": "0.0.1",
+    "description": "",
+    "author": "",
+    "private": true,
+    "license": "UNLICENSED",
+    "devDependencies": {
+        "@openapitools/openapi-generator-cli": "^2.4.1"
+    }
+}
